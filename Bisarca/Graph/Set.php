@@ -56,11 +56,11 @@ class Set implements Countable, IteratorAggregate
         $reflection = new ReflectionClass(get_class($this));
         $set        = $reflection->newInstanceArgs($set->elements);
 
-        array_filter($set->elements, function ($element) {
+        $subset = array_filter($set->elements, function ($element) {
             return !in_array($element, $this->elements, true);
         });
 
-        foreach ($set as $element) {
+        foreach ($set as &$element) {
             $this->elements[] = $element;
         }
 
@@ -79,13 +79,11 @@ class Set implements Countable, IteratorAggregate
         $reflection = new ReflectionClass(get_class($this));
         $set        = $reflection->newInstanceArgs($set->elements);
 
-        $this->elements = array_values(array_uintersect(
-            $this->elements,
-            $set->elements,
-            function ($a, $b) {
-                return -($a !== $b);
-            }
-        ));
+        $subset = array_filter($set->elements, function ($element) {
+            return in_array($element, $this->elements, true);
+        });
+
+        $this->elements = array_values($subset);
 
         return $this;
     }
@@ -102,13 +100,11 @@ class Set implements Countable, IteratorAggregate
         $reflection = new ReflectionClass(get_class($this));
         $set        = $reflection->newInstanceArgs($set->elements);
 
-        $this->elements = array_values(array_udiff(
-            $this->elements,
-            $set->elements,
-            function ($a, $b) {
-                return -($a !== $b);
-            }
-        ));
+        $subset = array_filter($set->elements, function ($element) {
+            return !in_array($element, $this->elements, true);
+        });
+
+        $this->elements = array_values($subset);
 
         return $this;
     }
