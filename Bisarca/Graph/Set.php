@@ -60,7 +60,7 @@ class Set implements Countable, IteratorAggregate
             return !in_array($element, $this->elements, true);
         });
 
-        foreach ($set as &$element) {
+        foreach ($subset as &$element) {
             $this->elements[] = $element;
         }
 
