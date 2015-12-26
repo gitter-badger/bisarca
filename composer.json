@@ -1,11 +1,7 @@
 {
     "archive": {
         "exclude": [
-            "!LICENSE.md",
-            "*.md",
-            "*.dist",
-            "*Test.php",
-            ".*"
+            "Test/"
         ]
     },
     "authors": [
@@ -18,7 +14,7 @@
     ],
     "autoload": {
         "exclude-from-classmap": [
-            "**Test.php"
+            "Test/"
         ],
         "psr-4": {
             "Bisarca\\": "Bisarca"

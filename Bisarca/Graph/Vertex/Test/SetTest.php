@@ -15,14 +15,16 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Bisarca\Graph\Arc;
+namespace Bisarca\Graph\Vertex\Test;
 
-use Bisarca\Graph\SetTest as BaseSetTest;
-use Bisarca\Graph\Vertex\Element as Vertex;
-use Bisarca\Graph\Vertex\Set as Vertices;
+use Bisarca\Graph\Arc\Element as Arc;
+use Bisarca\Graph\Arc\Set as Arcs;
+use Bisarca\Graph\Test\SetTest as BaseSetTest;
+use Bisarca\Graph\Vertex\Element;
+use Bisarca\Graph\Vertex\Set;
 
 /**
- * @coversDefaultClass \Bisarca\Graph\Arc\Set
+ * @coversDefaultClass \Bisarca\Graph\Vertex\Set
  */
 class SetTest extends BaseSetTest
 {
@@ -40,18 +42,12 @@ class SetTest extends BaseSetTest
      */
     protected function getMockedElement()
     {
-        return $this
-            ->getMockBuilder(Element::class)
-            ->setConstructorArgs([
-                $this->getMock(Vertex::class),
-                $this->getMock(Vertex::class),
-            ])
-            ->getMock();
+        return $this->getMock(Element::class);
     }
 
     /**
-     * @covers ::__construct
      * @covers ::union
+     * @covers ::__construct
      */
     public function testUnionWrongType()
     {
@@ -59,12 +55,14 @@ class SetTest extends BaseSetTest
             PHP_MAJOR_VERSION < 7 ? 'PHPUnit_Framework_Error' : 'TypeError'
         );
 
-        $this->object->union(new Vertices(new Vertex));
+        $this->object->union(
+            new Arcs($this->getWrongMockedElement())
+        );
     }
 
     /**
-     * @covers ::__construct
      * @covers ::intersection
+     * @covers ::__construct
      * @depends testUnionWrongType
      */
     public function testIntersectionWrongType()
@@ -73,12 +71,14 @@ class SetTest extends BaseSetTest
             PHP_MAJOR_VERSION < 7 ? 'PHPUnit_Framework_Error' : 'TypeError'
         );
 
-        $this->object->intersection(new Vertices(new Vertex));
+        $this->object->intersection(
+            new Arcs($this->getWrongMockedElement())
+        );
     }
 
     /**
-     * @covers ::__construct
      * @covers ::difference
+     * @covers ::__construct
      * @depends testUnionWrongType
      */
     public function testDifferenceWrongType()
@@ -87,6 +87,22 @@ class SetTest extends BaseSetTest
             PHP_MAJOR_VERSION < 7 ? 'PHPUnit_Framework_Error' : 'TypeError'
         );
 
-        $this->object->difference(new Vertices(new Vertex));
+        $this->object->difference(
+            new Arcs($this->getWrongMockedElement())
+        );
+    }
+
+    /**
+     * @return Arc
+     */
+    private function getWrongMockedElement()
+    {
+        return $this
+            ->getMockBuilder(Arc::class)
+            ->setConstructorArgs([
+                $this->getMock(Element::class),
+                $this->getMock(Element::class),
+            ])
+            ->getMock();
     }
 }

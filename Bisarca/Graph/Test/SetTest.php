@@ -15,9 +15,11 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Bisarca\Graph;
+namespace Bisarca\Graph\Test;
 
 use ArrayIterator;
+use Bisarca\Graph\Element;
+use Bisarca\Graph\Set;
 use PHPUnit_Framework_TestCase;
 use Traversable;
 

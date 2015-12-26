@@ -15,8 +15,12 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Bisarca\Graph;
+namespace Bisarca\Graph\Test;
 
+use Bisarca\Graph\Arc;
+use Bisarca\Graph\Graph;
+use Bisarca\Graph\Set;
+use Bisarca\Graph\Vertex;
 use PHPUnit_Framework_TestCase;
 
 /**

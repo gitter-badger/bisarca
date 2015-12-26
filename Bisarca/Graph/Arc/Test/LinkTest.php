@@ -15,8 +15,9 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Bisarca\Graph\Arc;
+namespace Bisarca\Graph\Arc\Test;
 
+use Bisarca\Graph\Arc\Link;
 use Bisarca\Graph\Vertex\Element as Vertex;
 use Exception;
 

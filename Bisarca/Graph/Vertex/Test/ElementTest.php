@@ -15,8 +15,9 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Bisarca\Graph\Vertex;
+namespace Bisarca\Graph\Vertex\Test;
 
+use Bisarca\Graph\Vertex\Element;
 use PHPUnit_Framework_TestCase;
 
 /**
