@@ -18,7 +18,7 @@
 namespace Bisarca\Graph\Test;
 
 use ArrayIterator;
-use Bisarca\Graph\Element;
+use Bisarca\Graph\ElementInterface;
 use Bisarca\Graph\Set;
 use PHPUnit_Framework_TestCase;
 use Traversable;
@@ -43,11 +43,11 @@ class SetTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return Element
+     * @return ElementInterface
      */
     protected function getMockedElement()
     {
-        return $this->getMock(Element::class);
+        return $this->getMock(ElementInterface::class);
     }
 
     /**

@@ -30,16 +30,16 @@ class Set implements Countable, IteratorAggregate
     /**
      * Set elements.
      *
-     * @var Element[]
+     * @var ElementInterface[]
      */
     private $elements = [];
 
     /**
      * Set initialization.
      *
-     * @param Element[] $elements Elements to include in the set.
+     * @param ElementInterface[] $elements Elements to include in the set.
      */
-    public function __construct(Element ...$elements)
+    public function __construct(ElementInterface ...$elements)
     {
         $this->elements = $elements;
     }

@@ -20,6 +20,6 @@ namespace Bisarca\Graph;
 /**
  * @todo documentation
  */
-interface Element
+interface ElementInterface
 {
 }

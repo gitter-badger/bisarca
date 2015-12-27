@@ -17,12 +17,12 @@
 
 namespace Bisarca\Graph\Vertex;
 
-use Bisarca\Graph\Element as BaseElement;
+use Bisarca\Graph\ElementInterface;
 
 /**
  * @todo documentation
  */
-class Element implements BaseElement
+class Element implements ElementInterface
 {
     /**
      * Vertex identifier.

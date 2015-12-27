@@ -17,14 +17,14 @@
 
 namespace Bisarca\Graph\Arc;
 
-use Bisarca\Graph\Element as BaseElement;
+use Bisarca\Graph\ElementInterface;
 use Bisarca\Graph\Vertex\Element as Vertex;
 use Bisarca\Graph\Vertex\Set as Vertices;
 
 /**
  * @todo documentation
  */
-class Element implements BaseElement
+class Element implements ElementInterface
 {
     /**
      * Initial vertex.
