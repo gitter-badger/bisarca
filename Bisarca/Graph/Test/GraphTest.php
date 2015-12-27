@@ -19,6 +19,7 @@ namespace Bisarca\Graph\Test;
 
 use Bisarca\Graph\Arc;
 use Bisarca\Graph\Graph;
+use Bisarca\Graph\Graph\Test\OperationsTraitTestTrait;
 use Bisarca\Graph\Set;
 use Bisarca\Graph\Vertex;
 use PHPUnit_Framework_TestCase;
@@ -28,6 +29,8 @@ use PHPUnit_Framework_TestCase;
  */
 class GraphTest extends PHPUnit_Framework_TestCase
 {
+    use OperationsTraitTestTrait;
+
     /**
      * @var Graph
      */

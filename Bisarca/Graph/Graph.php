@@ -23,6 +23,8 @@ namespace Bisarca\Graph;
  */
 class Graph
 {
+    use Graph\OperationsTrait;
+
     /**
      * Vertices set.
      *
