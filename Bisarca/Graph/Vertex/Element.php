@@ -18,18 +18,14 @@
 namespace Bisarca\Graph\Vertex;
 
 use Bisarca\Graph\ElementInterface;
+use Bisarca\Graph\IdentifiableTrait;
 
 /**
  * @todo documentation
  */
 class Element implements ElementInterface
 {
-    /**
-     * Vertex identifier.
-     *
-     * @var mixed
-     */
-    private $identifier;
+    use IdentifiableTrait;
 
     /**
      * Constructor with optional identifier.
@@ -38,30 +34,6 @@ class Element implements ElementInterface
      */
     public function __construct($identifier = null)
     {
-        $this->identifier = $identifier;
-    }
-
-    /**
-     * Gets the vertex identifier.
-     *
-     * @return mixed
-     */
-    public function getIdentifier()
-    {
-        return $this->identifier;
-    }
-
-    /**
-     * Sets the vertex identifier.
-     *
-     * @param mixed $identifier The vertex identifier.
-     *
-     * @return Element
-     */
-    public function setIdentifier($identifier = null)
-    {
-        $this->identifier = $identifier;
-
-        return $this;
+        $this->setIdentifier($identifier);
     }
 }

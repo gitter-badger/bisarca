@@ -15,21 +15,18 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Bisarca\Graph\Vertex\Test;
+namespace Bisarca\Graph\Test;
 
-use Bisarca\Graph\Test\IdentifiableTraitTestTrait;
-use Bisarca\Graph\Vertex\Element;
+use Bisarca\Graph\IdentifiableTrait;
 use PHPUnit_Framework_TestCase;
 
 /**
- * @coversDefaultClass \Bisarca\Graph\Vertex\Element
+ * @coversDefaultClass \Bisarca\Graph\IdentifiableTrait
  */
-class ElementTest extends PHPUnit_Framework_TestCase
+class IdentifiableTraitTest extends PHPUnit_Framework_TestCase
 {
-    use IdentifiableTraitTestTrait;
-
     /**
-     * @var Element
+     * @var IdentifiableTrait
      */
     protected $object;
 
@@ -39,14 +36,29 @@ class ElementTest extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->testConstruct();
+        $this->object = $this->getMockForTrait(IdentifiableTrait::class);
     }
 
     /**
-     * @covers ::__construct
+     * @covers ::setIdentifier
      */
-    public function testConstruct()
+    public function testSetIdentifier()
     {
-        $this->object = new Element(rand());
+        $identifier = rand();
+
+        $setterOutput = $this->object->setIdentifier($identifier);
+        $this->assertInstanceOf(get_class($this->object), $setterOutput);
+    }
+
+    /**
+     * @covers ::getIdentifier
+     * @depends testSetIdentifier
+     */
+    public function testGetIdentifier()
+    {
+        $identifier = rand();
+        $this->object->setIdentifier($identifier);
+
+        $this->assertSame($identifier, $this->object->getIdentifier());
     }
 }

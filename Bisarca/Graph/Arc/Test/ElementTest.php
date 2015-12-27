@@ -18,6 +18,7 @@
 namespace Bisarca\Graph\Arc\Test;
 
 use Bisarca\Graph\Arc\Element;
+use Bisarca\Graph\Test\IdentifiableTraitTestTrait;
 use Bisarca\Graph\Vertex\Element as Vertex;
 use Bisarca\Graph\Vertex\Set as Vertices;
 use PHPUnit_Framework_TestCase;
@@ -27,6 +28,8 @@ use PHPUnit_Framework_TestCase;
  */
 class ElementTest extends PHPUnit_Framework_TestCase
 {
+    use IdentifiableTraitTestTrait;
+
     /**
      * @var Vertex
      */

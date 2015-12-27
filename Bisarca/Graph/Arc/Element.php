@@ -18,6 +18,7 @@
 namespace Bisarca\Graph\Arc;
 
 use Bisarca\Graph\ElementInterface;
+use Bisarca\Graph\IdentifiableTrait;
 use Bisarca\Graph\Vertex\Element as Vertex;
 use Bisarca\Graph\Vertex\Set as Vertices;
 
@@ -26,6 +27,8 @@ use Bisarca\Graph\Vertex\Set as Vertices;
  */
 class Element implements ElementInterface
 {
+    use IdentifiableTrait;
+
     /**
      * Initial vertex.
      *

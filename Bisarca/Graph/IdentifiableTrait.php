@@ -20,21 +20,36 @@ namespace Bisarca\Graph;
 /**
  * @todo documentation
  */
-interface ElementInterface
+trait IdentifiableTrait
 {
     /**
-     * Gets the element identifier.
+     * Identifier.
+     *
+     * @var mixed
+     */
+    protected $identifier;
+
+    /**
+     * Gets the identifier.
      *
      * @return mixed
      */
-    public function getIdentifier();
+    public function getIdentifier()
+    {
+        return $this->identifier;
+    }
 
     /**
-     * Sets the element identifier.
+     * Sets the identifier.
      *
      * @param mixed $identifier The identifier.
      *
-     * @return ElementInterface
+     * @return mixed
      */
-    public function setIdentifier($identifier = null);
+    public function setIdentifier($identifier = null)
+    {
+        $this->identifier = $identifier;
+
+        return $this;
+    }
 }

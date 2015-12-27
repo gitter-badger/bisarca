@@ -15,26 +15,30 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Bisarca\Graph;
+namespace Bisarca\Graph\Test;
 
-/**
- * @todo documentation
- */
-interface ElementInterface
+trait IdentifiableTraitTestTrait
 {
     /**
-     * Gets the element identifier.
-     *
-     * @return mixed
+     * @covers ::setIdentifier
      */
-    public function getIdentifier();
+    public function testSetIdentifier()
+    {
+        $identifier = rand();
+
+        $setterOutput = $this->object->setIdentifier($identifier);
+        $this->assertInstanceOf(get_class($this->object), $setterOutput);
+    }
 
     /**
-     * Sets the element identifier.
-     *
-     * @param mixed $identifier The identifier.
-     *
-     * @return ElementInterface
+     * @covers ::getIdentifier
+     * @depends testSetIdentifier
      */
-    public function setIdentifier($identifier = null);
+    public function testGetIdentifier()
+    {
+        $identifier = rand();
+        $this->object->setIdentifier($identifier);
+
+        $this->assertSame($identifier, $this->object->getIdentifier());
+    }
 }
